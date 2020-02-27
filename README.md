@@ -7,6 +7,6 @@ conda create -n sphnix
 pip install -r requirements.txt
 ```
 
-# Build Html
+## Build Html
 
 `cd docs/; make html`
