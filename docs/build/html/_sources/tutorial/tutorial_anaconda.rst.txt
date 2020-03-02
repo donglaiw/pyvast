@@ -7,8 +7,7 @@ Anaconda (back-end) + JupyterLab (front-end)
 
 #. Install Anacoda
 
-   #. `Download <https://www.anaconda.com/distribution/#download-section>`_
-         (python 3.7)
+   #. `Download <https://www.anaconda.com/distribution/#download-section>`_ (python 3.7)
 
    #. Follow the installer instructions
 

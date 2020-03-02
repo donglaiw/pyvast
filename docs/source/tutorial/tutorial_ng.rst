@@ -20,8 +20,7 @@ Neuroglancer
 
    #. (Optional) `Download <http://hp03.mindhackers.org/rhoana_product/dataset/snemi.zip/>`_ SNEMI neuron segmentation dataset
    
-   #. Open a jupyter notebook (choose "ng" kernel) or `python -i THIS_FILE.py`
-         (in "ng" conda env)
+   #. Open a jupyter notebook (choose "ng" kernel) or `python -i THIS_FILE.py` (in "ng" conda env)
 
     .. code-block:: python
         
