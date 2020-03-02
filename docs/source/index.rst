@@ -11,8 +11,8 @@ PyVast: Python utility functions for VAST lite
 
 .. toctree::
    :glob:
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Software
    
-   tutorial/tutorial_env
+   tutorial/tutorial_anaconda
    tutorial/tutorial_ng
