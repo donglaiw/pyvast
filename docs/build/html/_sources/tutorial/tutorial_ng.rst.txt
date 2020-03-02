@@ -1,30 +1,33 @@
-Visualization
+Neuroglancer
 ==========================
 
-Neuroglancer
----------------------
 3D image stack and segmentation visualization
     
-#. Install python back-end
+#. (Windows Only) Install `Microsoft Visual C++
+   <https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2017>`_ (Community version)
+
+#. Install Python back-end and add jupyter kernel
     
     .. code-block:: none 
 
+        conda create -n ng
+        conda activate ng
+        conda install pip ipykernel imageio h5py numpy
         pip install neuroglancer
-
-#. Install NodeJS front-end: `README.md <https://github.com/google/neuroglancer#building>`_
+        python -m ipykernel install --user --name ng --display-name "ng"
 
 #. Usage: 
 
-   #. mount `/n/coxfs01/`  unto your local machine (see ``Setup/Computation``)
-
-   #. run on ipython/jupyter notebook or `python -i THIS_FILE.py`
+   #. (Optional) `Download <http://hp03.mindhackers.org/rhoana_product/dataset/snemi.zip/>`_ SNEMI neuron segmentation dataset
+   
+   #. Open a jupyter notebook (choose "ng" kernel) or `python -i THIS_FILE.py`
+         (in "ng" conda env)
 
     .. code-block:: python
         
         import neuroglancer
         import numpy as np
-        import sys
-        import tifffile
+        import imageio
 
         ip='localhost' # or public IP of the machine for sharable display
         port=98092 # change to an unused port number
@@ -32,10 +35,10 @@ Neuroglancer
         viewer=neuroglancer.Viewer()
 
         # SNEMI
-        D0='/mnt/coxfs01/vcg_connectomics/snemi/'
+        D0='path/to/download/'
         res=[6,6,30]; # resolution of the data
         print('load im')
-        im = tifffile.imread(D0+'img/train-input.tif')
+        im = imageio.volread(D0+'image/train-input.tif')
         with viewer.txn() as s:
             s.layers.append(
                 name='im',
@@ -45,7 +48,7 @@ Neuroglancer
                 ))
 
         print('load gt')
-        gt = tifffile.imread(D0+'label/train-labels.tif')
+        gt = imageio.volread(D0+'seg/train-labels.tif')
         with viewer.txn() as s:
             s.layers.append(
                 name='gt',
@@ -55,5 +58,3 @@ Neuroglancer
                 ))
 
         print(viewer)
-
-

@@ -14,4 +14,5 @@ PyVast: Python utility functions for VAST lite
    :maxdepth: 2
    :caption: Software
    
+   tutorial/tutorial_env
    tutorial/tutorial_ng
